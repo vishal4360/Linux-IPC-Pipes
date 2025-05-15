@@ -1,3 +1,5 @@
+# NAME: VISHAL C
+# REG NO: 212224100062
 # Linux-IPC--Pipes
 Linux-IPC-Pipes
 
@@ -24,7 +26,7 @@ Testing the C Program for the desired output.
 # PROGRAM:
 
 ## C Program that illustrate communication between two process using unnamed pipes using Linux API system calls
-~~~
+```c
 #include<stdio.h>
 #include<stdlib.h>
 #include<sys/types.h> 
@@ -52,18 +54,7 @@ client(p1[1],p2[0]);
 wait(waits); 
 return 0; 
 } 
-void client(int wfd,int rfd) {
-int i,j,n; char fname[2000];
-char buff[2000];
-printf("ENTER THE FILE NAME :");
-scanf("%s",fname);
-printf("CLIENT SENDING THE REQUEST .... PLEASE WAIT\n");
-sleep(10);
-write(wfd,fname,2000);
-n=read(rfd,buff,2000);
-buff[n]='\0';
-printf("THE RESULTS OF CLIENTS ARE ...... \n"); write(1,buff,n);
-}
+
 void server(int rfd,int wfd) 
 { 
 int i,j,n; 
@@ -79,17 +70,31 @@ else
 n=read(fd,buff,2000); 
 write(wfd,buff,n); 
 }
+void client(int wfd,int rfd) {
+int i,j,n; char fname[2000];
+char buff[2000];
+printf("ENTER THE FILE NAME :");
+scanf("%s",fname);
+printf("CLIENT SENDING THE REQUEST .... PLEASE WAIT\n");
+sleep(10);
+write(wfd,fname,2000);
+n=read(rfd,buff,2000);
+buff[n]='\0';
+printf("THE RESULTS OF CLIENTS ARE ...... \n"); write(1,buff,n);
+}
 
-~~~
+```
 
 
-## OUTPUT
-![image1](https://github.com/user-attachments/assets/a1a9a86f-9efc-4299-91a0-0feaeff70827)
 
 
+![image](https://github.com/PYNAMVINODH/Linux-IPC-Pipes/assets/145742678/4f7a118b-d024-4acb-a2c0-8cd072d426ce)
 
 ## C Program that illustrate communication between two process using named pipes using Linux API system calls
-~~~
+
+```c
+
+#include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/types.h>
@@ -99,13 +104,13 @@ int res = mkfifo("/tmp/my_fifo", 0777);
 if (res == 0) printf("FIFO created\n");
 exit(EXIT_SUCCESS);
 }
-~~~
+
+
+```
+
 
 
 ## OUTPUT
-![image2](https://github.com/user-attachments/assets/67e55546-a2ff-4907-9055-9b2e8c6d779c)
-
-
-
+![image](https://github.com/PYNAMVINODH/Linux-IPC-Pipes/assets/145742678/a0832b8c-5291-43ac-91f4-93bb028e0f69)
 # RESULT:
-The program is executed successfully.
+The program has been executed successfully.
